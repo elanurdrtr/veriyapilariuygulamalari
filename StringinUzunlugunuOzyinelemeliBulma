@@ -1,0 +1,14 @@
+//Soru:Bir stringin uzunluğunu özyinelemeli olarak bulan fonksiyonu yazınız.
+#include <iostream>
+#include <string>
+using namespace std;
+
+int Uzunluk(string yazi){
+	if(yazi[0] == '\0') return 0;
+	return 1 + Uzunluk(yazi.substr(1));
+}
+int main() {
+	cout<<"stringin uzunlugu:";
+	cout<<Uzunluk("125874");
+	return 0;
+	}
