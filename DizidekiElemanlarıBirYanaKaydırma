@@ -1,0 +1,29 @@
+//Soru:Dizideki her elemanı bir indeks yana kaydıran programı yazınız.
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Kaydir(int dizi[], int uzunluk )
+{
+	int tmp = dizi[0];
+	
+	for(int i=0; i<uzunluk-1; i++){
+		int ileri = dizi[i+1];
+		tmp=ileri;
+	}
+	dizi[0]=tmp;
+}
+int main() {
+		int dizi[]={2,64,41,9,57,18,97,7,10,22};
+			cout<<"-----ilk hali-----" ; cout<<endl ;
+		for (int i=0 ; i<=9 ; i++){
+	cout<<""<< dizi[i];  cout<<endl ;
+	}
+	
+	cout<<"-----Kaydirilmis hali-----" ; cout<<endl ;
+	for (int i=1 ; i<=9 ; i++){
+	cout<<""<< dizi[i];  cout<<endl ;
+		}
+	cout<<""<<dizi[0] ;
+
+}
