@@ -1,0 +1,29 @@
+//Soru:Hatalı çarpma işlemi yapan bir c++ programı yazınız.
+      //Bu çarpma işleminin hatası toplama kısmında ifadeyi bir basamak sola kaydırmıyor oluşudur.
+	  //Kullanıcıdan iki sayı alınacak ilk alınan sayı ilk çarpan ikinci alınan sayı ikinci çarpan sayılacak ve o şekilde bir çarpma işlemi uygulanacak.
+#include <iostream>
+#include <cmath>
+
+  using namespace std;
+  int Uzunluk(int carpan2) {
+	return floor(log10(abs(carpan2))) + 1;
+}
+  int HataliCarpma(int carpan1,int carpan2) {
+  int sonuc=0;
+	for(int i=Uzunluk(carpan2)-1;i>=0;i--){
+		int dgr=carpan2/pow(10,i);
+		int basamak=dgr%10;
+		sonuc+=(carpan1*basamak);
+	}
+		return sonuc;
+	}
+int main(){
+	int carpan1,carpan2;
+	cout<<"carpan 1:";
+	cin>>carpan1;
+	cout<<"carpan 2:";
+	cin>>carpan2;
+	
+	cout<<"Sonuc:"<<HataliCarpma(carpan1,carpan2);
+	return 0;
+}
