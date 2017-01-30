@@ -1,0 +1,38 @@
+//Soru:Yazacağınız Topla fonksiyonu parametre olarak bir ikili,bir de 16 tabanında iki sayi alarak bunların toplamını onluk tabanda döndürmelidir.
+
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+int IkiliDonusum(string ikiliSayi) {
+	int deger =0;
+	int uzunluk=ikiliSayi.size();
+	int ikiliUzunluk=uzunluk;
+	
+	for(int i=0; i<uzunluk; i++){
+		deger=(atoi(ikiliSayi.substr(i,1).c_str())*pow(static_cast<double>(2),--ikiliUzunluk))+deger;
+	}
+	return deger;
+}
+int OnaltiliDonusum(string onaltiliSayi){
+	int tmp;
+	int deger;
+	stringstream ss;
+	ss<<hex<< onaltiliSayi;
+	ss>>tmp;
+	
+	deger=reinterpret_cast<int&>(tmp);
+	return deger;
+}
+int Topla(string ikiliSayi,string onaltiliSayi){
+	return IkiliDonusum(ikiliSayi)+OnaltiliDonusum(onaltiliSayi);
+}
+int main(){
+	cout<<"ikili ve onaltilik tabandaki sayilarin 10 tabaninda toplami:";
+	cout<<Topla("1000","FF");
+	return 0;
+}
