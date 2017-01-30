@@ -1,0 +1,36 @@
+//Soru:Yazacağınız fonksiyon, parametre olarak alacağı ikili bir sayıyı 10 tabanında bir sayıya dönüştürüp döndürmelidir.
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+/*
+* - "tabanDonusum" adli, "ikiliSayi" adli parametre alan ve integer döndüren bir fonksiyon tanimlaniyor
+* - "deger" adli degeri 0 olan integer degisken tanimlaniyor
+* - "uzunluk" adli, fonksiyona verilen parametrenin uzunluguna esit degerli integer degisken tanimlaniyor
+* - "ikiliUzunluk" adli "uzunluk" degiskeninin degerine esit degerli integer degisken tanimlaniyor
+* - sifirdan "uzunluk" degiskeninin degerine kadar birer artacak sekilde for dongusu baslatiliyor
+* - her dongude:
+*	+ fonksiyona verilen parametreden substr fonksiyonu ile soldan "i." basamagi (i = dongu sayisi - 1) alinip
+*	  atoi fonksiyonu ile integer degere donusturuluyor (sonuc olarak 1 veya 0 geliyor)
+*	+ ardindan "ikiliUzunluk" degiskeninin degeri bir azaltildiktan sonra ikinin "ikiliUzunluk". kuvveti aliniyor
+*	+ bu iki islemin sonucu degerlerin carpimi "deger" degiskenine ekleniyor
+* - dongu bitiminde fonksiyon "deger" degiskenini donduruyor
+*/
+int tabanDonusum(string ikiliSayi){
+	int deger = 0;
+	int uzunluk = ikiliSayi.size();
+	double a = 2.0;
+	int ikiliUzunluk = uzunluk;
+	for(int i=0;i < uzunluk;i++){
+		deger += (atoi(ikiliSayi.substr(i,1).c_str()) * pow(static_cast<double>(2), --ikiliUzunluk));
+	}
+	return deger;
+}
+
+int main(){
+	cout<<tabanDonusum("101011");
+	return 0;
+}
