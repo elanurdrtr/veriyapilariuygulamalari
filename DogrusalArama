@@ -1,0 +1,29 @@
+//Dogrusal Arama
+#include <stdio.h>
+
+int main(){
+	int dizi[100];
+	int i,sayi,aranan;
+	int boolnum=0;
+	printf("Eklenecek eleman sayisini giriniz:");
+	scanf("%d",&sayi);
+	
+	printf("Dizi elemanlarini giriniz:\n");
+	for(i=0;i<=sayi-1;i++){
+		scanf("%d",&dizi[i]);
+	}
+	printf("Aranan elemani giriniz:");
+	scanf("%d",&aranan);
+
+    for(i=0;i<=sayi-1;i++){
+    	if(dizi[i]==aranan){
+    		boolnum=1;
+			break;		
+		}
+	}
+	if(boolnum==0)
+	printf("Aranan eleman listede bulunamamistir.\n");
+	else
+	printf("Aranan eleman %d.sirada bulunmustur.\n",i+1);
+	return 0;
+}
