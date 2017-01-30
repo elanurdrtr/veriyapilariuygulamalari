@@ -1,0 +1,54 @@
+//Soru:Matris çarpımı yapıp sonucu ekrana yazan programı yazınız.Matris çarpımının ayrı bir fonksiyon yapmalıdır.
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void Matris(int **m,int **n,int **sonuc,int satir,int sutun){
+	int toplam=0;
+	for(int i=0;i<satir;i++){
+		for(int j=0;j<sutun;j++){
+			for(int k=0;k<satir;k++){
+				toplam=toplam + m[i][k] * n[k][j];
+			}
+			sonuc[i][j]=toplam;
+			toplam=0;
+		}
+	}
+}
+int main() {
+	int satir=3,sutun=3;
+	int *m[satir],*n[satir],*sonuc[satir];
+	
+	srand(time(NULL));
+	for(int i=0;i<satir;i++){
+		m[i]=new int[sutun]();
+		for(int j=0;j<sutun;j++){
+			m[i][j]=rand() % 10;
+		}
+	}
+	for(int i=0;i<satir;i++){
+		n[i]=new int[sutun]();
+		for(int j=0;j<sutun;j++){
+			n[i][j]=rand() % 10;
+		}
+	}
+	for(int i=0;i<satir;i++){
+		sonuc[i]=new int[sutun]();
+	}
+	
+	Matris(&m[0],&n[0],&sonuc[0],satir,sutun);
+	for(int i=0;i<satir;i++){
+		for(int j=0;j<sutun;j++){
+			cout<<sonuc[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	for(int i=0;i<satir;i++){
+		delete m[i];
+		delete n[i];
+		delete sonuc[i];
+	}
+	return 0;
+}
