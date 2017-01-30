@@ -1,0 +1,20 @@
+//İlk benzer elemanı yazdıran program kodu
+#include <iostream>
+using namespace std;
+
+string Benzer(string cumle1[],string cumle2[],int uzunluk){
+		for(int i=0;i<uzunluk;i++){
+		for(int j=0;j<uzunluk;j++){
+		if(cumle1[i]==cumle2[j]) return cumle1[i];
+
+	}
+	}
+}
+
+int main(){
+
+	string cumle1[]={"merhaba", "dunya"};
+	string cumle2[]={"hello" ,"dunya"};
+	cout<<"Benzer eleman:"<<Benzer(cumle1,cumle2,2);
+
+}
