@@ -1,0 +1,24 @@
+//Soru:Hanoi kuleleri analizi
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int hamle(0);
+void Hanoi(int m, char a, char b, char c);
+
+void Hanoi(int m, char a, char b, char c){
+	hamle++;
+	if(m == 1){cout<< "diski tasiyoruz" << m << "de" << a << "ya" <<c<< endl;}
+	else{Hanoi(m-1,a,c,b);
+	cout<< "diski tasiyoruz" << m << "de" << a << "ya" << c << endl;
+	Hanoi(m-1,b,a,c);}
+}
+
+int main(){
+		int discs;
+		cout<< "disk numarasini girin:" << endl;
+		cin>>discs;
+		Hanoi(discs,'A','B','C');
+		cout<< "tamamladik" <<hamle<< "hamlede." << endl;
+		system( "pause" );
+}
