@@ -1,0 +1,14 @@
+//Soru:Kullanıcının gireceği metnin ASCII karşılığını ekrana yazan fonksiyonu yazınız.
+
+#include <conio.h>
+#include <stdio.h>
+ void main()
+ { 
+ char karakter;
+
+ printf("Karakteri giriniz: ");
+ scanf("%c", &karakter);
+ 
+ printf("ASCII karsiligi: %d ", karakter);
+ getch();
+ }
