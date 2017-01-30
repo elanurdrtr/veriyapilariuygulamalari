@@ -1,0 +1,88 @@
+//Soru:Dairesel tek yönlü bağlı listenin düğümü, veri olarak, 3x3'lük iki boyutlu ondalıklı sayı dizisi içeriyorsa bu düğümün kodunu yazınız.
+#include <iostream>
+using namespace std;
+
+class Dugum{
+	public:
+		int eleman;
+		Dugum *onceki;
+		Dugum *sonraki;
+		
+		Dugum(int eklenen, Dugum *oncekiDugum = NULL, Dugum *sonrakiDugum = NULL){
+			eleman = eklenen;
+			sonraki = sonrakiDugum;
+			onceki = oncekiDugum;
+		}
+};
+
+void printNode(Dugum* node){
+	cout << "\tDugum adresi: " << node << endl;
+	cout << "\tDugum elemani: " << node->eleman << "\n\tOnceki dugum adresi: ";
+	if (node->onceki == NULL){
+		cout << "NULL\n";
+	}else{
+		cout << node->onceki << "\n";
+	}
+	cout << "\tSonraki dugum adresi: ";
+	if (node->sonraki == NULL){
+		cout << "NULL";
+	}else{
+		cout << node->sonraki;
+	}
+	cout << "\n----------------" << endl;
+}
+
+int main() {
+	Dugum* listeBasi = new Dugum(0);
+	Dugum* listeSonu = new Dugum(0);
+	
+	Dugum* dugum1 = new Dugum(16);
+	Dugum* dugum2 = new Dugum(32);
+	Dugum* dugum3 = new Dugum(64);
+	
+	listeBasi = dugum1;
+	listeSonu = dugum3;
+	
+	dugum1->onceki = NULL;
+	dugum1->sonraki = dugum2;
+	
+	dugum2->onceki = dugum1;
+	dugum2->sonraki = dugum3;
+	
+	dugum3->onceki = dugum2;
+	dugum3->sonraki = NULL;
+	
+	cout << "listeBasi:\n";
+	printNode(listeBasi);
+	cout << "dugum1:\n";
+	printNode(dugum1);
+	cout << "dugum2:\n";
+	printNode(dugum2);
+	cout << "dugum3:\n";
+	printNode(dugum3);
+	cout << "listeSonu:\n";
+	printNode(listeSonu);
+	
+	cout << "\n[!] dugum4 liste basina ekleniyor\n" << endl;
+	
+	Dugum* dugum4 = new Dugum(128);
+	
+	dugum4->sonraki = listeBasi;
+	listeBasi->onceki = dugum4;
+	listeBasi = dugum4;
+	
+	cout << "listeBasi:\n";
+	printNode(listeBasi);
+	cout << "dugum1:\n";
+	printNode(dugum1);
+	cout << "dugum2:\n";
+	printNode(dugum2);
+	cout << "dugum3:\n";
+	printNode(dugum3);
+	cout << "dugum4:\n";
+	printNode(dugum4);
+	cout << "listeSonu:\n";
+	printNode(listeSonu);
+	
+	return 0;
+}
