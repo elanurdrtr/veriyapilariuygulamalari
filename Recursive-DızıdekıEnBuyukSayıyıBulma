@@ -1,0 +1,18 @@
+//Soru:Bir dizideki en büyük sayıyı özyinelemeli olarak bulan fonksiyonu yazınız.//iterative
+#include <iostream>
+#include <string>
+#include <cstdio>
+#include <cmath>
+
+using namespace std;
+int main() {
+	int sayiDizisi[] ={23,14,63,8,65,7,87,100,3};
+	int uzunluk=10;
+	int max=0;
+	for(int i=0;i<uzunluk;i++){
+		if(sayiDizisi[i]>max) max=sayiDizisi[i];
+	}
+
+	cout<<"iterative sonuc:"<<max<<endl;
+	return 0;
+	}
