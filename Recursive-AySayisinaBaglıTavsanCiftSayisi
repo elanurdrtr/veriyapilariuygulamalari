@@ -1,0 +1,17 @@
+//Soru:Bir çiftliğe bir dişi bir erkek tavşan yavrusu bırakılmıştır.Yavru dişi tavşan ergin tavşan olup yavrulaması için 1 ay geçmesi gerekmektedir 
+       //ve her yavrulayan ergin dişi tavşanlar,bir dişi ve bir erkek olmak üzere iki yavru tavşan doğurmaktadırlar.
+       //Ay sayısı parametre olarak alınıp oluşacak toplam tavşan çifti sayısını özyinelemeli(recursive) bir şekilde hesaplayan fonksiyonu yazınız. 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+using namespace std;	
+
+int main(){
+	int ay;
+	int tavsan;
+	int i;
+	
+	printf("kac ay sonunda tavsan cifti sayisini görmek istiyorsunuz:");
+	scanf("%d",&ay);
+	tavsan=pow(2,ay);
+	printf("olusan tavsan cifti sayisi:%d",tavsan);
