@@ -1,0 +1,14 @@
+//Soru:Bir stringi tersini özyinelemeli(recursive) olarak döndüren fonksiyonu yazınız.
+#include <iostream>
+#include <string>//string : Standart kütüphanedeki string sınıfının tanımlanmasını içerir.
+using namespace std;
+
+string TersCevir(string yazi){
+	if(yazi.size() == 0) return yazi;
+	return TersCevir(yazi.substr(1)) +yazi.at(0);
+}
+
+int main() {
+	cout<<TersCevir("Cumle ve Polinom");
+	return 0;
+	}
